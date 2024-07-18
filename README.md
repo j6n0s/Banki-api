@@ -44,7 +44,7 @@ Ha nincs a felhasználónak profilja akkor létre tud hozni egyet majd azzal bej
 A sikeres bejelentkezéskor visszakapunk egy 'Kulcs'-nak keresztelt WebTokent amit az Authorize gombra kattintva meg lehet adni fontos, hogy előtte be kell írni a 'Bearer ' kifejezést majd beilletszteni a kulcsot.
 
 ## Admin ügyfél és sima ügyfél:
-Az admin ügyfél mindenki adatát látja és módosíthatja, viszont a sima mazei ügyfél csak a saját adatait látja és módosíthatja és azt is csak korlátok között.
+Az admin ügyfél mindenki adatát látja és módosíthatja, viszont a sima mezei ügyfél csak a saját maga adatait látja és csakis azokon végezhet módosításokat (azt is csak korlátok között).
 
 # Metódusok
 
@@ -61,13 +61,15 @@ ezek korlátozást kaptak az ügyfelek fajtái szerint.
 ## Példa:
 Admin ügyfél:
 Létre tud hozni a saját azonosítóján túl is számlákat más ügyfeleknek és bármennyi kezdő egyenleget el tud helyezni rajta.
+
 Sima ügyfél:
 Automatikusan magának generálja le a számlát 0 ft egyenleggel.
 
-# Felhasznaloi felület
+# Felhasznalói felület
 Ezen a linken érhető el: https://github.com/j6n0s/Bank-app.git
-A program elindítása a readme-ben található
-Egy teljes vizuális felület amely ellátja a fontosabb műveleteket (értelemszerűen erre is vonatkozik az admin privilégiuma - minden adat felett diszponál)
+
+A program elindítása a readme-ben található.
+Egy teljes vizuális felület amely ellátja a fontosabb műveleteket (értelemszerűen erre is vonatkozik az admin privilégiuma - minden adat felett diszponál).
 
 # Továbbfejlesztés (példák)
 Nagyobb körü megszorítások bevezetése:
