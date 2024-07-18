@@ -8,7 +8,7 @@ A mappa letöltése után létre kell hozni egy virtuális környezetet:
 
 > venv\Scripts\activate
 
-### Maj letölteni a requirements.txt-ből a szükséges csomagokat:
+### Majd le kell tölteni a requirements.txt-ből a szükséges csomagokat:
 
 > pip install -r requirements.txt
 
