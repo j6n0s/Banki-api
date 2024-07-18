@@ -471,7 +471,7 @@ class BefizetesekListApi(Resource):
     method_decorators = [jwt_required()]
 
     @ns4.doc(security="webKey")
-    @ns4.doc(responces={200: "Siker", 404: "Nem talalhato befizetes"})
+    @ns4.doc(responses={200: "Sikeres!", 404: "Nem talalhato befizetes!"})
     @ns4.marshal_list_with(befizetes_model)
     def get(self):
         if current_user.admin == True:
@@ -522,7 +522,7 @@ class BefizetesekListApi(Resource):
 
     @ns4.doc(security="webKey")
     @ns4.doc(responces={200: "Siker", 404: "Szamla nem talalhato", 400: "Hibas formatum",
-                        423: "Jogosultsag megtagadva"})
+                       423: "Jogosultsag megtagadva"})
     @ns4.expect(befizetes_post_model)
     @ns4.marshal_with(befizetes_model)
     def post(self):
@@ -716,7 +716,8 @@ class PenzfelvetelApi(Resource):
     method_decorators = [jwt_required()]
 
     @ns5.doc(security="webKey")
-    @ns5.doc(responses={200: "Sikeres!", 404: "Nem talalhato ilyen penzfelvetel"})
+    @ns5.doc(responses={200: "Sikeres!", 404: "Nem talalhato ilyen penzfelvetel",
+                        423: "Jogosultsag megtagadva"})
     @ns5.marshal_with(penzfelvetel_model)
     def get(self, id):
         if Penzfelvetel.query.get(id):
@@ -755,7 +756,7 @@ class PenzfelvetelApi(Resource):
             jelenlegi_osszeg = abs(ns5.payload["osszeg"])
             penzfelvetel = Penzfelvetel.query.get(id)
             if penzfelvetel:
-                if Szamla.query.get(penzfelvetel.szamla) - jelenlegi_osszeg >= 0:
+                if Szamla.query.get(penzfelvetel.szamla).egyenleg - jelenlegi_osszeg >= 0:
                     elozo_osszeg = penzfelvetel.osszeg- jelenlegi_osszeg
                     transfer = Szamla.query.get(penzfelvetel.szamla)
 
