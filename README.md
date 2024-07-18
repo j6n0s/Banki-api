@@ -29,6 +29,7 @@ A mappa letöltése után létre kell hozni egy virtuális környezetet:
 ### létre kell hozni az adatbázis a db_models.py-ban meghatározott séma szerint:
 
 > from db_models import *
+
 >db.create_all()
 
 ### Ezzel létre is lett hozva az adatbázis
