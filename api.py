@@ -757,7 +757,7 @@ class PenzfelvetelApi(Resource):
             penzfelvetel = Penzfelvetel.query.get(id)
             if penzfelvetel:
                 if Szamla.query.get(penzfelvetel.szamla).egyenleg - jelenlegi_osszeg >= 0:
-                    elozo_osszeg = penzfelvetel.osszeg- jelenlegi_osszeg
+                    elozo_osszeg = penzfelvetel.osszeg
                     transfer = Szamla.query.get(penzfelvetel.szamla)
 
                     if elozo_osszeg > jelenlegi_osszeg:
